@@ -401,7 +401,7 @@ class Option:
             medium_textRect = medium_text.get_rect()
             medium_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
             SCREEN.blit(medium_text, medium_textRect)
-            hard_text = font.render("???", True, (0, 0, 0))
+            hard_text = font.render("Universe", True, (0, 0, 0))
             hard_textRect = hard_text.get_rect()
             hard_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 50)
             SCREEN.blit(hard_text, hard_textRect)
@@ -491,10 +491,40 @@ class Option:
             if (themeStatus == 3):
                 diff_font = pygame.font.Font('freesansbold.ttf', 20)
                 # 3번 :
-                diff_text = diff_font.render("ComingSoon", True, (0, 0, 0))
+                diff_text = diff_font.render("Changed to Universe Theme", True, (0, 0, 0))
                 diff_textRect = diff_text.get_rect()
                 diff_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 200)
                 SCREEN.blit(diff_text, diff_textRect)
+
+                # Assets Setting
+                SCREEN_BG = (20, 20, 20)
+                RUNNING = [pygame.image.load(os.path.join("Assets/photoes/planet", "r_run1.png")),
+                           pygame.image.load(os.path.join("Assets/photoes/planet", "r_run1.png"))]
+                JUMPING = pygame.image.load(os.path.join("Assets/photoes/planet", "r_jump.png"))
+                DUCKING = [pygame.image.load(os.path.join("Assets/photoes/planet", "r_duck1.png")),
+                           pygame.image.load(os.path.join("Assets/photoes/planet", "r_duck2.png"))]
+
+                SMALL_CACTUS = [pygame.image.load(os.path.join("Assets/photoes/ground", "small.png")),
+                                pygame.image.load(os.path.join("Assets/photoes/ground", "small.png")),
+                                pygame.image.load(os.path.join("Assets/photoes/ground", "small.png"))]
+                LARGE_CACTUS = [pygame.image.load(os.path.join("Assets/photoes/ground", "big1.png")),
+                                pygame.image.load(os.path.join("Assets/photoes/ground", "big2.png")),
+                                pygame.image.load(os.path.join("Assets/photoes/ground", "big2.png"))]
+
+                BIRD = [pygame.image.load(os.path.join("Assets/photoes/sky", "planet_1.png")),
+                        pygame.image.load(os.path.join("Assets/photoes/sky", "planet_2.png"))]
+
+                CLOUD = pygame.image.load(os.path.join("Assets/Night/Other", "Cloud.png"))
+
+                BG = pygame.image.load(os.path.join("Assets/Night/Other", "Track.png"))
+
+                JUMP_SOUND = pygame.mixer.Sound(os.path.join("Assets/Soundtrack", "jump.mp3"))
+                SPEEDUP_SOUND = pygame.mixer.Sound(os.path.join("Assets/Soundtrack", "speedup.mp3"))
+                BG_MUSIC = pygame.mixer.Sound(os.path.join("Assets/Soundtrack", "Main_BGM.mp3"))
+
+                Dinosaur.Y_POS_DUCK = 320
+                FONT_COLOR = (255, 255, 255)
+
                 Menu_selected = font.render(chr(64), True, (0, 0, 0))
                 Menu_selectedRect = Menu_selected.get_rect()
                 Menu_selectedRect.center = (SCREEN_WIDTH // 2 - 100, SCREEN_HEIGHT // 2 + 45)
