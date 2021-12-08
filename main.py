@@ -497,7 +497,7 @@ class Option:
                 SCREEN.blit(diff_text, diff_textRect)
 
                 # Assets Setting
-                SCREEN_BG = (20, 20, 20)
+                SCREEN_BG = (25, 25, 25)
                 RUNNING = [pygame.image.load(os.path.join("Assets/photoes/planet", "r_run1.png")),
                            pygame.image.load(os.path.join("Assets/photoes/planet", "r_run1.png"))]
                 JUMPING = pygame.image.load(os.path.join("Assets/photoes/planet", "r_jump.png"))
