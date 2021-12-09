@@ -680,7 +680,7 @@ class Option:
 
                 CLOUD = pygame.image.load(os.path.join("Assets/Night/Other", "Cloud.png"))
 
-                BG = pygame.image.load(os.path.join("Assets/Night/Other", "Track.png"))
+                BG = pygame.image.load(os.path.join("Assets/photoes/ground", "Track.png"))
 
                 JUMP_SOUND = pygame.mixer.Sound(os.path.join("Assets/Soundtrack", "jump.mp3"))
                 SPEEDUP_SOUND = pygame.mixer.Sound(os.path.join("Assets/Soundtrack", "speedup.mp3"))
