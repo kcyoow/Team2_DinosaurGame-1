@@ -10,7 +10,6 @@ The Chrome Dinosaur 🦖 Game in build with Pygame in Python.
 | ------ | ------------- | ----------- | -------------------------------------------- |
 | POST   | /user/v1/data | json        | push user's point data                       |
 | POST   | /user/v1/info | json        | receive user's rank data in descending order |
-| POST   | /user/v1/rank | json        | receive the top 5 rank points |
 
 # Response
 
@@ -20,7 +19,6 @@ The Chrome Dinosaur 🦖 Game in build with Pygame in Python.
 | ------ | ------------- | ----------- |
 | POST   | /user/v1/data | json        |
 | POST   | /user/v1/info | json/array  |
-| POST   | /user/v1/rank | json        |
 
 ## Success Response
 
@@ -30,11 +28,7 @@ The Chrome Dinosaur 🦖 Game in build with Pygame in Python.
 - Content:
 
 ```yaml
-/user/v1/data, /user/v1/info
-{ "Message": array }
---
-/user/v1/rank
-{ "Args": double-dimensional array, "Count": integer, "Message": boolean }
+{ "StatusCode": 200, "Message": [] }
 ```
 
 ## Error Response
@@ -45,7 +39,7 @@ The Chrome Dinosaur 🦖 Game in build with Pygame in Python.
 - Content:
 
 ```yaml
-{ "Message": "Invalid Contents." }
+{ "StatusCode": 401, "Message": "Invalid Contents." }
 ```
 
 ---
