@@ -186,10 +186,10 @@ class Option:
             theme_textRect = theme_text.get_rect()
             theme_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 50)
             SCREEN.blit(theme_text, theme_textRect)
-            reader_text = font.render("Readerboard", True, (0, 0, 0))
-            reader_textRect = reader_text.get_rect()
-            reader_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 100)
-            SCREEN.blit(reader_text, reader_textRect)
+            leader_text = font.render("Leaderboard", True, (0, 0, 0))
+            leader_textRect = leader_text.get_rect()
+            leader_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 100)
+            SCREEN.blit(leader_text, leader_textRect)
             ranking_text = font.render("Ranking", True, (0, 0, 0))
             ranking_textRect = ranking_text.get_rect()
             ranking_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 150)
@@ -616,7 +616,7 @@ class Option:
         SCORE = response.json()['Message']
         while True:
             SCREEN.fill((255, 255, 255))
-            title_text = font.render("Score Board", True, (0, 0, 0))
+            title_text = font.render("Leader Board", True, (0, 0, 0))
             title_textRect = title_text.get_rect()
             title_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 -180)
             SCREEN.blit(title_text, title_textRect)
