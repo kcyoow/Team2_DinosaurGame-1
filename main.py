@@ -19,7 +19,7 @@ SCREEN_WIDTH = 1100
 SCREEN = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 SCREEN_BG = (255, 255, 255)
 FONT_COLOR = (0, 0, 0)
-RANKING = []
+
 RUNNING = [pygame.image.load(os.path.join("Assets/Dino", "DinoRun1.png")),
            pygame.image.load(os.path.join("Assets/Dino", "DinoRun2.png"))]
 JUMPING = pygame.image.load(os.path.join("Assets/Dino", "DinoJump.png"))
@@ -144,7 +144,7 @@ class Option:
     def option(death_count):
         global SELECT_MENU, SELECT_MENU_END
         SELECT_MENU = 1
-        SELECT_MENU_END = 5
+        SELECT_MENU_END = 4
         while True:
             SCREEN.fill((255, 255, 255))
             font = pygame.font.Font('freesansbold.ttf', 30)
@@ -173,11 +173,6 @@ class Option:
                 Menu_selectRect = Menu_select.get_rect()
                 Menu_selectRect.center = (SCREEN_WIDTH // 2 - 120, SCREEN_HEIGHT // 2 + 145)
                 SCREEN.blit(Menu_select, Menu_selectRect)
-            if(SELECT_MENU == 5):
-                Menu_select = font.render(">", True, (0, 0, 0))
-                Menu_selectRect = Menu_select.get_rect()
-                Menu_selectRect.center = (SCREEN_WIDTH // 2 - 120, SCREEN_HEIGHT // 2 + 195)
-                SCREEN.blit(Menu_select, Menu_selectRect)
             diff_text = font.render("Change Difficult", True, (0, 0, 0))
             diff_textRect = diff_text.get_rect()
             diff_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
@@ -190,13 +185,9 @@ class Option:
             reader_textRect = reader_text.get_rect()
             reader_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 100)
             SCREEN.blit(reader_text, reader_textRect)
-            ranking_text = font.render("Ranking", True, (0, 0, 0))
-            ranking_textRect = ranking_text.get_rect()
-            ranking_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 150)
-            SCREEN.blit(ranking_text, ranking_textRect)
             back_text = font.render("Back to Menu", True, (0, 0, 0))
             back_textRect = back_text.get_rect()
-            back_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 200)
+            back_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 150)
             SCREEN.blit(back_text, back_textRect)
             pygame.display.update()
             for event in pygame.event.get():
@@ -220,10 +211,7 @@ class Option:
                         if SELECT_MENU == 3:
                             Option.score(death_count)
                         if SELECT_MENU == 4:
-                            Option.ranking(death_count)
-                        if SELECT_MENU == 5:
                             menu(death_count)
-
     def difficult_menu(death_count):
         global SET_SPEED, INCREASE_RATE, SELECT_MENU, SELECT_MENU_END, DIFF
         SELECT_MENU_END = 5
@@ -308,8 +296,8 @@ class Option:
                 Menu_selectedRect.center = (SCREEN_WIDTH // 2 - 100, SCREEN_HEIGHT // 2 - 5)
                 SCREEN.blit(Menu_selected, Menu_selectedRect)
                 # Medium Speed
-                SET_SPEED = 30 # Start Speed
-                INCREASE_RATE = 1 # 1 increase per 100 points.
+                SET_SPEED = 30
+                INCREASE_RATE = 1
             if(DIFF == 3):
                 diff_font = pygame.font.Font('freesansbold.ttf', 20)
                 # Hard 난이도
@@ -322,8 +310,8 @@ class Option:
                 Menu_selectedRect.center = (SCREEN_WIDTH // 2 - 100, SCREEN_HEIGHT // 2 + 45)
                 SCREEN.blit(Menu_selected, Menu_selectedRect)
                 # Hard Speed
-                SET_SPEED = 40 # Start Speed
-                INCREASE_RATE = 2 # 2 increase per 100 points.
+                SET_SPEED = 40
+                INCREASE_RATE = 2
             if(DIFF == 4):
                 diff_font = pygame.font.Font('freesansbold.ttf', 20)
                 # VeryHard 난이도
@@ -336,8 +324,8 @@ class Option:
                 Menu_selectedRect.center = (SCREEN_WIDTH // 2 - 100, SCREEN_HEIGHT // 2 + 95)
                 SCREEN.blit(Menu_selected, Menu_selectedRect)
                 # VeryHard Speed
-                SET_SPEED = 50 # Start Speed
-                INCREASE_RATE = 3 # 3 increase per 100 points.
+                SET_SPEED = 50
+                INCREASE_RATE = 3
 
             pygame.display.update()
             for event in pygame.event.get():
@@ -405,22 +393,22 @@ class Option:
                 Menu_selectRect = Menu_select.get_rect()
                 Menu_selectRect.center = (SCREEN_WIDTH // 2 - 140, SCREEN_HEIGHT // 2 + 145)
                 SCREEN.blit(Menu_select, Menu_selectRect)
-            default_text = font.render("Default", True, (0, 0, 0))
-            default_textRect = default_text.get_rect()
-            default_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 - 50)
-            SCREEN.blit(default_text, default_textRect)
-            supermario_text = font.render("Supermario", True, (0, 0, 0))
-            supermario_textRect = supermario_text.get_rect()
-            supermario_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
-            SCREEN.blit(supermario_text, supermario_textRect)
-            univ_text = font.render("Universe", True, (0, 0, 0))
-            univ_textRect = univ_text.get_rect()
-            univ_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 50)
-            SCREEN.blit(univ_text, univ_textRect)
-            night_text = font.render("Night", True, (0, 0, 0))
-            night_textRect = night_text.get_rect()
-            night_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 100)
-            SCREEN.blit(night_text, night_textRect)
+            easy_text = font.render("Default", True, (0, 0, 0))
+            easy_textRect = easy_text.get_rect()
+            easy_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 - 50)
+            SCREEN.blit(easy_text, easy_textRect)
+            medium_text = font.render("Supermario", True, (0, 0, 0))
+            medium_textRect = medium_text.get_rect()
+            medium_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
+            SCREEN.blit(medium_text, medium_textRect)
+            hard_text = font.render("Universe", True, (0, 0, 0))
+            hard_textRect = hard_text.get_rect()
+            hard_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 50)
+            SCREEN.blit(hard_text, hard_textRect)
+            veryhard_text = font.render("Night", True, (0, 0, 0))
+            veryhard_textRect = veryhard_text.get_rect()
+            veryhard_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 100)
+            SCREEN.blit(veryhard_text, veryhard_textRect)
             back_text = font.render("Back to Option", True, (0, 0, 0))
             back_textRect = back_text.get_rect()
             back_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 150)
@@ -631,58 +619,6 @@ class Option:
                     score_textRect = score_text.get_rect()
                     score_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 - 80 + (i*50))
                     SCREEN.blit(score_text, score_textRect)
-            title_text = score_font.render("Press Enter to Back", True, (0, 0, 0))
-            title_textRect = title_text.get_rect()
-            title_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 200)
-            SCREEN.blit(title_text, title_textRect)
-            for event in pygame.event.get():
-                    if event.type == pygame.QUIT:
-                        pygame.quit()
-                        run = False
-                    if event.type == pygame.KEYDOWN:
-                        if event.key == pygame.K_RETURN:
-                            Option.option(death_count)
-            pygame.display.update()
-    def ranking(death_count):
-        global RANKING
-        font = pygame.font.Font('freesansbold.ttf', 40)
-        score_font = pygame.font.Font('freesansbold.ttf', 20)
-        datas = {
-            "uid" : mac
-        }
-        url = "http://ec2-54-180-119-201.ap-northeast-2.compute.amazonaws.com/user/v1/data"
-        response = requests.post(url, data=datas)
-        datas = {
-            "uid" : mac
-            
-        }
-        url = "http://ec2-54-180-119-201.ap-northeast-2.compute.amazonaws.com/user/v1/rank"
-        response = requests.post(url, data=datas)
-        RANKING = response.json()['Args']
-            
-        while True:
-            SCREEN.fill((255, 255, 255))
-            title_text = font.render("Ranking", True, (0, 0, 0))
-            title_textRect = title_text.get_rect()
-            title_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 -180)
-            SCREEN.blit(title_text, title_textRect)
-            for i in range(5):
-                if(len(RANKING) <= i):
-                    score_text = score_font.render((str)(i+1) + "        ?????        empty", True, (0, 0, 0))
-                    score_textRect = score_text.get_rect()
-                    score_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 - 80 + (i*50))
-                    SCREEN.blit(score_text, score_textRect)
-                else:
-                    if (response.json()['Message'] and i+1 == response.json()['Count']):
-                        score_text = score_font.render((str)(i+1) + "    " + RANKING[i][1] + "    " +  (str)(RANKING[i][0]), True, (255, 0, 0))
-                        score_textRect = score_text.get_rect()
-                        score_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 - 80 + (i*50))
-                        SCREEN.blit(score_text, score_textRect)
-                    else:
-                        score_text = score_font.render((str)(i+1) + "    " + RANKING[i][1] + "    " +  (str)(RANKING[i][0]), True, (0, 0, 0))
-                        score_textRect = score_text.get_rect()
-                        score_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 - 80 + (i*50))
-                        SCREEN.blit(score_text, score_textRect)
             title_text = score_font.render("Press Enter to Back", True, (0, 0, 0))
             title_textRect = title_text.get_rect()
             title_textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 200)
