@@ -1,0 +1,43 @@
+This is using docstrings for specifications.
+---
+requestBody:
+  
+  content:
+    application/json:
+      schema:
+        properties:
+          uid:
+            type: string
+        example:
+          uid: test
+  definitions:
+    Args:
+      type: array
+    Message:
+      type: bool
+    Count:
+      type: int
+responses:
+  200:
+    description: A list of user points
+    content:
+      application/json:
+        schema:
+          properties:
+            Args:
+              type: array
+            Message:
+              type: bool
+            Count:
+              type: int
+        example:
+          Args:
+            [
+              [3556, Teresa],
+              [3477, Albert],
+              [3333, You],
+              [2217, Richard],
+              [1294, Lisa],
+            ]
+          Message: true
+          Count: 3
